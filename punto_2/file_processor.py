@@ -177,7 +177,7 @@ class FileProcessor:
             
             
 if __name__ == '__main__':
-    processor = FileProcessor('C:\\Users\\JUAN\\Desktop\\imexhs\\developer_test_py_ang\\')
-    processor.list_folder_content('C:\\Users\\JUAN\\Desktop\\Prueba modelos\\data\\', details=True)
-    processor.read_csv(filename='C:\\Users\\JUAN\\Desktop\\imexhs\\developer_test_py_ang\\sample-02-csv.csv', report_path='C:\\Users\\JUAN\\Desktop\\imexhs', summary=True)
-    processor.read_dicom(filename="C:\\Users\\JUAN\Desktop\\imexhs\\developer_test_py_ang\\sample-02-dicom.dcm", tags=[(0x0010, 0x0010), (0x0008, 0x0060)], extract_image=True) 
+    processor = FileProcessor('.\\imexhs\\developer_test_py_ang\\')
+    processor.list_folder_content('.\\imexhs\\data\\', details=True)
+    processor.read_csv(filename='.\\imexhs\\developer_test_py_ang\\sample-02-csv.csv', report_path='.\\imexhs', summary=True)
+    processor.read_dicom(filename=".\\imexhs\\developer_test_py_ang\\sample-02-dicom.dcm", tags=[(0x0010, 0x0010), (0x0008, 0x0060)], extract_image=True) 
