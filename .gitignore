@@ -1,0 +1,32 @@
+# git ignore python unnecessary files and angular unnecessary files
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+*.egg
+*.egg-info/
+dist/
+build/
+*.egg-info/
+*.pypirc
+*.pyo
+*.pyd
+*.pdb
+*.pyc
+
+# Angular
+node_modules/
+dist/
+tmp/
+out-tsc/
+*.log
+.angular/
+.idea/
+.vscode/
+
+# logs
+*./logs/

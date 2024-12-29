@@ -1,0 +1,30 @@
+<!-- Main container with flex layout -->
+<div class="flex flex-col items-center w-full h-full p-4">
+  <!-- Navigation tabs -->
+  <div class="flex justify-center border-b w-full">
+    <!-- Upload tab button - toggles active state based on currentTab value -->
+    <button class="px-4 py-2 border-b-2 border-transparent transition-colors"
+      [ngClass]="{'bg-blue-500 text-white': currentTab === 'upload', 'text-gray-600': currentTab !== 'upload'}"
+      (click)="setTab('upload')">
+      Upload
+    </button>
+    <!-- Calculate/Results tab button - toggles active state based on currentTab value -->
+    <button class="px-4 py-2 border-b-2 border-transparent transition-colors"
+      [ngClass]="{'bg-blue-500 text-white': currentTab === 'calculate', 'text-gray-600': currentTab !== 'calculate'}"
+      (click)="setTab('calculate')">
+      Results
+    </button>
+  </div>
+
+  <!-- Content container -->
+  <div class="w-full mb-2">
+    <!-- Router outlet for displaying active component -->
+    <router-outlet class="flex flex-col items-center mb-0"></router-outlet>
+    <!-- Methodology section with carousel -->
+    <div class="flex flex-col items-center mt-2">
+      <h2 class="text-lg font-medium mb-2">¿Cómo usarlo?</h2>
+      <!-- Carousel component displaying methodology steps -->
+      <app-carousel [images]="methodologyImages"></app-carousel>
+    </div>
+  </div>
+</div>

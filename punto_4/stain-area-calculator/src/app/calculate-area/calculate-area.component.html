@@ -1,0 +1,45 @@
+<!-- Main container with styling for the component -->
+<div class="p-6 bg-white rounded-lg shadow-sm">
+    <!-- Component title -->
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Stain Area Calculus</h2>
+
+    <!-- Message shown when no data is available -->
+    <p *ngIf="!(data$ | async)" class="text-gray-500 text-center py-8 bg-gray-50 rounded-lg">No calculations
+        available yet or not image uploaded.</p>
+
+    <!-- Results table - only shown when data is available -->
+    <table *ngIf="(data$ | async)" class="min-w-full divide-y divide-gray-200 shadow-sm rounded-lg overflow-hidden">
+        <!-- Table header with column definitions -->
+        <thead>
+            <tr class="bg-gray-100">
+                <th class="border border-gray-200 px-4 py-2">Original Image </th>
+                <th class="border border-gray-200 px-4 py-2">Drawed Points Image</th>
+                <th class="border border-gray-200 px-4 py-2">Points Used</th>
+                <th class="border border-gray-200 px-4 py-2">Estimated Area</th>
+            </tr>
+        </thead>
+        <!-- Table body - iterates over calculation results -->
+        <tbody>
+            <tr *ngFor="let result of data$ | async" class="hover:bg-gray-50">
+                <!-- Original image cell -->
+                <td class="border border-gray-200 px-8 py-2">
+                    <img [src]="result.originalImage.src" alt="stain" class="h-32 w-32 object-cover rounded-lg">
+                </td>
+                <!-- Modified image with drawn points cell -->
+                <td class="border border-gray-200 px-8 py-2">
+                    <img [src]="result.modifiedImage.src" alt="stain" class="h-32 w-32 object-cover rounded-lg">
+                </td>
+                <!-- List of coordinates used for calculation -->
+                <td class="border border-gray-200 px-4 py-2">
+                    <ul>
+                        <li *ngFor="let point of result.points">
+                            <span class="font-bold">{{ point.x }}</span> x <span class="font-bold">{{ point.y }}</span>
+                        </li>
+                    </ul>
+                </td>
+                <!-- Calculated area with number formatting -->
+                <td class="border border-gray-200 px-4 py-2">{{ result.area | number:'1.4-4' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
